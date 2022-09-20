@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title":  {
-    "text":"Australian Export Partner Share",
-    "align": "center"},
+  "title": {"text": "Australia's Export Partner Share (2000 to 2019)",
+            "anchor": "middle",
+          "color":"darkblue",
+        "fontSize":20},
   "repeat": {"row": ["2000", "2005", "2010","2015","2019"]},
   "resolve": {
     "scale": {
@@ -43,7 +44,7 @@
         "scale": {"domain": [0,1,2,5,10,20,25,35,40]}},
       "tooltip": [
         {"field": "Partner Name", "type": "nominal", "title": "Country"},
-        {"field": {"repeat": "row"}}]
+        {"field": {"repeat": "row"}, "title":"Share Value"}]
      
     }
   }

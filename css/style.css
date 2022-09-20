@@ -1,4 +1,10 @@
 h1{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 40px;
+    color:darkblue;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+h2{
+    color:darkblue;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
 }
