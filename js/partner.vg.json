@@ -4,7 +4,7 @@
             "anchor": "middle",
           "color":"darkblue",
         "fontSize":20},
-  "repeat": {"row": ["2000","2010","2019"]},
+  "repeat": {"row": ["2000", "2010", "2019"]},
   "resolve": {
     "scale": {
       "color": "independent"}
