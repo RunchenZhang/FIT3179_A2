@@ -15,12 +15,18 @@
 <center>  
 <h1> Australia's Export Visualization </h1>
 <h2> by Runchen Zhang 30070058 </h2>
-<div id="partner"></div>
+<div id="partner2000"></div>
+<div id="partner2019"></div>
 </center>
 <script type="text/javascript">
 
-  var spec2 = "js/partner.vg.json";
-  vegaEmbed('#partner', spec2).then(function(result) {
+  var spec2 = "js/partner2000.vg.json";
+  vegaEmbed('#partner2000', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "js/partner2019.vg.json";
+  vegaEmbed('#partner2019', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>

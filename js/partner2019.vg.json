@@ -29,7 +29,7 @@
         "lookup": "properties.NAME",
         "from": {
           "data": {
-            "url": "data/Partner-Timeseries Pivot.csv"
+            "url": "data/Partner-2019.csv"
           },
           "key": "Partner Name",
           "fields": ["Year", "Export Partner Share"]
