@@ -2,6 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 250,
     "height": 300,
+    "title": "Australia's Export by product category (2019)",
     "data": {
       "url": "Export by category.csv"},
 
@@ -15,7 +16,7 @@
       "theta": {"field": "Value", "type": "quantitative", "stack":true},
       "color": {"field": "Category", 
                 "type": "nominal",
-                "legend":{"labelLimit":300}},
+                "legend":{"labelLimit":350, "labelFontSize":12}},
       "tooltip": [
         {"field": "Category", "type": "nominal", "title":"Product Category"},
         {"field": "Value", "type": "nominal", "title": "Export Value ($m)"},

@@ -1,0 +1,122 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 750,
+    "title": "Top 20 Partner Countries (2019)",
+    "data": {
+      "url": "top20-Partner-2019.csv"
+    },
+    "params": [
+
+      
+      {
+        "name": "Continent_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Eurpoe",
+            "North America",
+            "Asia",
+            "Oceania"
+          ],
+          "labels": [
+            "Show All",
+            "Eurpoe",
+            "North America",
+            "Asia",
+            "Oceania"
+          ],
+          "name": "Continent Selection: "
+        }
+      }
+    ],
+    "transform": [
+
+      {
+        "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Import Value",
+        "type": "quantitative",
+        "title": "Import Value (US$ Thousand)",
+        "axis": {"grid": false,"labels":false, "ticks": false},
+        "scale": {"type": "log", "domain": [90000, 90000000]}
+      },
+      "y": {
+        "field": "Export Value",
+        "type": "quantitative",
+        "title": "Export Value (US$ Thousand)",
+        "axis": {"grid": false,"labels": false, "ticks": false},
+        "scale": {"type": "log", "domain": [1000000, 200000000]}
+      }
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "Export Value",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [3000000, 10000000, 20000000, 40000000, 100000000],
+              "range": [100,200,400, 800,1600]
+            },
+            "legend": {"format": ".1s"}
+          },
+          "color": {
+            "field": "Continent",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Eurpoe",
+                "North America",
+                "Asia",
+                "Oceania"
+              ],
+              "range": [
+                "#984ea3",
+                "#ff7f00",
+                "#e41a1c",
+                "#377eb8"
+              ]
+            }
+          },
+          "opacity": {"value": 0.6},
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Export Value", "type": "quantitative", "format": ","},
+            {"field": "Import Value", "type": "quantitative", "format": ","}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -13,
+          "fontSize": 12
+        },
+        "encoding": {
+          "text": {"field": "Country", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['Country'] == 'China' || datum['Country'] == 'Switzerland' ||datum['Country'] == 'Canada' ||datum['Country'] == 'Papua New Guinea' ||datum['Country'] == 'Netherlands' ||datum['Country'] == 'United Arab Emirates' ||datum['Country'] == 'Thailand' ||datum['Country'] == 'Germany' ||datum['Country'] == 'Philippines' ||datum['Country'] == 'Indonesia' ||datum['Country'] == 'Hong Kong, China' ||datum['Country'] == 'Japan'  ||datum['Country'] == 'Korea'  ||datum['Country'] == 'United States'  ||datum['Country'] == 'United Kingdom'||datum['Country'] == 'Singapore'  || datum['Country'] == 'Malaysia'  ||datum['Country'] == 'New Zealand'  ||  datum['Country'] == 'India'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Export Value", "type": "quantitative", "format": ","},
+            {"field": "Import Value", "type": "quantitative", "format": ","}
+          ]
+        }
+      }
+    ]
+  }

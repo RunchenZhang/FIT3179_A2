@@ -1,0 +1,65 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Mining Companies in Australia",
+              "anchor": "middle",
+            "color":"black",
+          "fontSize":20},
+    "width": 800,
+    "height": 600,
+    "projection": {"type": "mercator"},
+    "data": {
+      "url":"STE_2016_AUST.topojson",
+      "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+      },
+      
+  
+      "layer": [
+
+      {"transform": [
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "Aus_Mine.csv"
+            },
+            "key": "State",
+            "fields": ["Name", "State","Status","Commodity Group"]
+          }
+        }
+  
+      ],
+      "mark":{"type": "geoshape", "fill":"lightgray","stroke": "white"},
+      "encoding": {
+      "tooltip":[
+        {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"}]
+      } },
+
+      {
+        "data": {
+            "url": "Aus_Mine.csv"
+          },
+          "projection": {
+            "type": "mercator"
+          },
+          "mark": "circle",
+          "encoding": {
+            "longitude": {
+              "field": "Longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "Latitude",
+              "type": "quantitative"
+            },
+            "size": {"value": 20},
+            "color": {"field": "Status", "type": "nominal",
+            "legend":{"labelFontSize":12}},
+            
+            "tooltip":[
+          {"field": "Name", "type": "nominal", "title": "Company Name"},
+          {"field": "Status", "type": "nominal", "title": "Company Status"},
+          {"field": "Commodity Group", "type": "nominal", "title": "Commodity Group"}
+            ]
+          }
+        }
+      ]}
