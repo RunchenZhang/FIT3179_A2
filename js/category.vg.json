@@ -1,0 +1,25 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 250,
+    "height": 300,
+    "data": {
+      "url": "Export by category.csv"},
+
+    "mark": {"type": "arc", "innerRadius": 60},
+    "transform": [
+      {"window": [{"op":"sum", "field": "Value", "as": "TotalValue"}],
+    "frame": [null, null]},
+    {"calculate": "round(datum.Value/datum.TotalValue * 100)" , "as": "Percentage"}
+    ],
+    "encoding": {
+      "theta": {"field": "Value", "type": "quantitative", "stack":true},
+      "color": {"field": "Category", 
+                "type": "nominal",
+                "legend":{"labelLimit":300}},
+      "tooltip": [
+        {"field": "Category", "type": "nominal", "title":"Product Category"},
+        {"field": "Value", "type": "nominal", "title": "Export Value ($m)"},
+        {"field": "Percentage", "type": "nominal", "title": "Percentage"}]
+        
+    }
+  }
