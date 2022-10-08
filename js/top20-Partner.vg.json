@@ -1,10 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 650,
     "height": 750,
-    "title": "Top 20 Partner Countries (2019)",
+    "title": {"text":"Top 20 Partner Countries",
+    "color":"#abc3e4",
+    "fontStyle":"italic",
+    "fontSize":18},
+    "background":"#424966",
     "data": {
-      "url": "top20-Partner-2019.csv"
+      "url": "data/top20-Partner.csv"
     },
     "params": [
 
@@ -12,7 +16,7 @@
       {
         "name": "Continent_selection",
         "bind": {
-          "input": "select",
+          "input": "radio",
           "options": [
             null,
             "Eurpoe",
@@ -29,12 +33,34 @@
           ],
           "name": "Continent Selection: "
         }
+      },
+      {
+        "name": "Year_selection",
+        "bind": {
+          "input": "radio",
+          "options": [
+            "2000","2001","2002","2003","2004","2005",
+            "2006","2007","2008","2009","2010","2011",
+            "2012","2013","2014","2015","2016","2017",
+            "2018","2019"
+          ],
+          "labels": [
+            "2000","2001","2002","2003","2004","2005",
+            "2006","2007","2008","2009","2010","2011",
+            "2012","2013","2014","2015","2016","2017",
+            "2018","2019"
+          ],
+          "name": "Year Selection: "
+        }
       }
     ],
     "transform": [
 
       {
         "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+      },
+      {
+        "filter": " datum.Year == Year_selection"
       }
     ],
     "encoding": {
@@ -42,15 +68,15 @@
         "field": "Import Value",
         "type": "quantitative",
         "title": "Import Value (US$ Thousand)",
-        "axis": {"grid": false,"labels":false, "ticks": false},
+        "axis": {"grid": false,"labels":false, "ticks": false, "titleColor":"#abc3e4"},
         "scale": {"type": "log", "domain": [90000, 90000000]}
       },
       "y": {
         "field": "Export Value",
         "type": "quantitative",
         "title": "Export Value (US$ Thousand)",
-        "axis": {"grid": false,"labels": false, "ticks": false},
-        "scale": {"type": "log", "domain": [1000000, 200000000]}
+        "axis": {"grid": false,"labels": false, "ticks": false,"titleColor":"#abc3e4"},
+        "scale": {"type": "log", "domain": [100000, 150000000]}
       }
     },
     "layer": [
@@ -65,7 +91,7 @@
               "domain": [3000000, 10000000, 20000000, 40000000, 100000000],
               "range": [100,200,400, 800,1600]
             },
-            "legend": {"format": ".1s"}
+            "legend": {"format": ".1s", "titleColor":"#abc3e4", "labelColor":"#abc3e4"}
           },
           "color": {
             "field": "Continent",
@@ -79,11 +105,12 @@
               ],
               "range": [
                 "#984ea3",
-                "#ff7f00",
+                "#f9c9a1",
                 "#e41a1c",
-                "#377eb8"
+                "#e09f68"
               ]
-            }
+            },
+            "legend": { "titleColor":"#abc3e4", "labelColor":"#abc3e4"}
           },
           "opacity": {"value": 0.6},
           "tooltip": [
@@ -103,7 +130,7 @@
         },
         "encoding": {
           "text": {"field": "Country", "type": "nominal"},
-          "color": {"value": "black"},
+          "color": {"value": "#abc3e4"},
           "opacity": {
             "condition": {
               "test": "datum['Country'] == 'China' || datum['Country'] == 'Switzerland' ||datum['Country'] == 'Canada' ||datum['Country'] == 'Papua New Guinea' ||datum['Country'] == 'Netherlands' ||datum['Country'] == 'United Arab Emirates' ||datum['Country'] == 'Thailand' ||datum['Country'] == 'Germany' ||datum['Country'] == 'Philippines' ||datum['Country'] == 'Indonesia' ||datum['Country'] == 'Hong Kong, China' ||datum['Country'] == 'Japan'  ||datum['Country'] == 'Korea'  ||datum['Country'] == 'United States'  ||datum['Country'] == 'United Kingdom'||datum['Country'] == 'Singapore'  || datum['Country'] == 'Malaysia'  ||datum['Country'] == 'New Zealand'  ||  datum['Country'] == 'India'",

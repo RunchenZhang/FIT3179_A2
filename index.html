@@ -12,12 +12,39 @@
 
 </head>
 <body>
+  <div class="page">
+
+
 <center>  
-<h1> Australia's Export Visualization </h1>
+<h1> FIT3179 Assignment 2 </h1>
 <h2> by Runchen Zhang 30070058 </h2>
-<div id="partner2000"></div>
+<center>
+<div class = "description" >
+
+</div>
+
+<center> 
+<div id="partner2000"> </div>
+<center> 
+<div class = "description" >
+<p style = "text-align: left;" > 
+   </p>
+</div>
+
+<center>   
 <div id="partner2019"></div>
+<center> 
+
+
+<center> 
+<div id="top20"></div>
 </center>
+
+
+
+
+
+
 <script type="text/javascript">
 
   var spec2 = "js/partner2000.vg.json";
@@ -29,7 +56,15 @@
   vegaEmbed('#partner2019', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+  var spec2 = "js/top20-Partner.vg.json";
+  vegaEmbed('#top20', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+
 </script>
+
 
 </body>
 </html>

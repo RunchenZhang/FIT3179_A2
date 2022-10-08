@@ -1,26 +1,49 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 250,
+    "width": 300,
     "height": 300,
-    "title": "Australia's Export by product category (2019)",
+    "title": {"text": "Australia's Export by category (2019)",
+    "anchor": "middle",
+    "color":"#abc3e4",
+    "fontStyle":"italic",
+    "fontSize":18},
+    "background":"#424966",
     "data": {
-      "url": "Export by category.csv"},
+      "url": "data/Export by category.csv"},
 
-    "mark": {"type": "arc", "innerRadius": 60},
     "transform": [
-      {"window": [{"op":"sum", "field": "Value", "as": "TotalValue"}],
-    "frame": [null, null]},
-    {"calculate": "round(datum.Value/datum.TotalValue * 100)" , "as": "Percentage"}
-    ],
+        {"window": [{"op":"sum", "field": "Value", "as": "TotalValue"}],
+         "frame": [null, null]},
+  
+        {"calculate": "round(datum.Value/datum.TotalValue * 100)" , "as": "Percentage"},
+        {"calculate": "datum.Value/1000" , "as": "Export Value ($b)"}
+         ],
+
     "encoding": {
-      "theta": {"field": "Value", "type": "quantitative", "stack":true},
-      "color": {"field": "Category", 
-                "type": "nominal",
-                "legend":{"labelLimit":350, "labelFontSize":12}},
-      "tooltip": [
-        {"field": "Category", "type": "nominal", "title":"Product Category"},
-        {"field": "Value", "type": "nominal", "title": "Export Value ($m)"},
-        {"field": "Percentage", "type": "nominal", "title": "Percentage"}]
-        
-    }
+          "theta": {"field": "Export Value ($b)", "type": "quantitative", "stack":true},
+          "color": {"field": "Category", 
+                    "type": "nominal",
+                    "legend":{"labelLimit":350, 
+                    "labelFontSize":12,"offset":50, 
+                    "titleColor":"#abc3e4", "labelColor":"#abc3e4"}},
+          "tooltip": [
+            {"field": "Category", "type": "nominal", "title":"Product Category"},
+            {"field": "Export Value ($b)", "type": "nominal", "title": "Export Value ($b)"},
+            {"field": "Percentage", "type": "nominal", "title": "Percentage"}]
+            
+        } ,
+    
+    "layer":[
+    {"mark": {"type": "arc", "innerRadius": 100, "outerRadius": 150}},
+    {"mark": {"type": "text", "fill": "lightgray", "align": "center", "baseline": "middle", "dx": 4, "dy": -28, "fontSize": 34},
+    "encoding": {"text": {"value": "$266"}}},
+    {
+      "mark": {"type": "text", "fill": "lightgray", "align": "center", "baseline": "middle", "dy": 18, "fontSize": 34},
+      "encoding": {
+        "text": {"value": "Billion"}
+      }}  
+  ]
+    
+
+
   }
