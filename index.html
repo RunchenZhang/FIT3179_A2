@@ -20,7 +20,12 @@
 <h2> by Runchen Zhang 30070058 </h2>
 <center>
 <div class = "description" >
-
+<img src="data/boat.jpg" width="860" height="481">
+<p style = "text-align:justify;" > 
+  Australia's products are currently demanded by many nations, particularly those in Asia led by China (Marks, 2020). 
+  Statistics show that China purchased commodities from Australia worth more than $116 billion in 2019, with iron ore being the main component. 
+  The openness rate—the proportion of imports and exports to GDP, has consistently risen in recent years as Australia has continued to optimize and reform its trading patterns and regulations.
+  Marks (2020) has argued that Australia holds a privileged position in international trade due to its resource advantages and considerable demand.</p>
 </div>
 
 <center> 
@@ -34,17 +39,73 @@
 <center>   
 <div id="partner2019"></div>
 <center> 
+<div class = "description" >
+<p style = "text-align:justify;" > 
+  The comparison reveals that over the past 20 years, Australia's import demand has increased significantly in some countries. 
+  As an illustration, in 2000, just 5.4% of Australia's total exports went to China; by 2019, that percentage had increased to 38.7%. 
+  However, demand for Australian exports has gradually decreased in other nations. For instance, in 2000, the proportion of Australia's 
+  total exports to Japan was 19.8%; in 2019, that proportion dropped to 14.8%. International politics, national policy, and diplomatic 
+  maneuvers frequently influence changes in international trade, with mutual benefit and win-win outcomes remaining an ongoing goal for all nations (Tan, 2021).</p>
+</div>
 
-  <div class = "description" >
-  </div>
 <center> 
 <div id="top20"></div>
 </center>
+<div class = "description" >
+<p style = "text-align:justify;" > 
+  To compare imports and exports with Australia, the 20 trading partners who cooperate the most were chosen. There is an obvious pattern of trade between countries and Australia: imports and exports are positively correlated, the more commodities imported into Australia, the more exports to Australia. Among these partner countries, China, Japan and Korea are the three countries having the highest trade flows with Australia. </p>
+</div>
 
+<div class = "description" >
+<p style = "text-align:justify;" > 
+  Examining the chart above, it appears that Asian countries account for a sizable share of the total. In response, Einhorn and Paton (2015) explained that Australia became quite interested in the Asian coal market after 2010 that there were plans to establish a port just for exports to Asia in 2015. Next let's compare the value of Australia's exports to each continent over 20 years from a regional perspective. </p>
+</div>
 
+<center> 
+<div id="continent"></div>
+</center>
+<div class = "description" >
+<p style = "text-align:justify;" > 
+</p>
+</div>
 
+<center>
+<div id="cate"></div>
+</center>
+<div class = "description" >
+<p style = "text-align:justify;" > 
+  Moving the focus to the export commodity categories, it can be noted that ores, slag, and ash account for 39% of total exports, while mineral fuels account for 28%. Over half of all exports are made up of goods derived from mineral resources. The export of meat products, agricultural products and machinery products also significant.</p>
+</div>
 
+<div class = "description" >
+  <div class="outer">
+    <div class = "inner">
+      <img src = "data/mining.jpg" width="230" height="160">
+      </div>
+    <div class = "inner">
+      <img src = "data/meat.jpg" width="230" height="160">
+      </div>
+    <div class = "inner">
+      <img src = "data/wheat.jpg" width="230" height="160">
+      </div>
+  </div>
+  </div>
 
+<div class = "description" >
+  <p style = "text-align:justify;" > 
+    The mining industry is the backbone of Australia's export. Now turn our attention to the industry and find out where all of Australia's mining companies are based.</p>
+</div>
+<center>
+  <div id="Mine"></div>
+</center>
+
+<div class = "description" >
+<p style = "text-align: left;" > 
+  This map covers 447 mining companies in Australia. The map shows that the majority of mining companies are located in West Australia, mainly due to the region's rich mineral resources. The Hamersley mine in the region is one of the largest iron ore production centers in the world (Mining Technology, 2000).</p>
+</div>
+
+<h3> End of the Visualization </h3>
+</div>
 
 <script type="text/javascript">
 
@@ -63,7 +124,20 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
+  var spec2 = "js/Continent.vg.json";
+  vegaEmbed('#continent', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
 
+  var spec2 = "js/category.vg.json";
+  vegaEmbed('#cate', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "js/Aus_Mine.vg.json";
+  vegaEmbed('#Mine', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
 </script>
 
 
