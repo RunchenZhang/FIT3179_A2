@@ -16,7 +16,7 @@
       {
         "name": "Continent_selection",
         "bind": {
-          "input": "radio",
+          "input": "select",
           "options": [
             null,
             "Eurpoe",
