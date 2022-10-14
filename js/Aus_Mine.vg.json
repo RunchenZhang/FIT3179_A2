@@ -6,8 +6,8 @@
             "fontStyle":"italic",
           "fontSize":18},
     "background":"white",
-    "width": 800,
-    "height":500,
+    "width": 700,
+    "height":440,
     "projection": {"type": "mercator"},
     "data": {
       "url":"js/STE_2016_AUST.topojson",

@@ -85,7 +85,7 @@
               "domain": [3000000, 10000000, 20000000, 40000000, 100000000],
               "range": [100,200,400, 800,1600]
             },
-            "legend": { "titleColor":"black", "labelColor":"black"}
+            "legend":null
           },
           "color": {
             "field": "Continent",
@@ -104,7 +104,7 @@
                 "#d79350"
               ]
             },
-            "legend": { "titleColor":"black", "labelColor":"black"}
+            "legend": { "orient": "top-left","titleColor":"black", "labelColor":"black"}
           },
           "opacity": {"value": 0.6},
           "tooltip": [
