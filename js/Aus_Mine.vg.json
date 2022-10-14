@@ -2,11 +2,11 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Mining Companies in Australia",
               "anchor": "middle",
-            "color":"#abc3e4",
+            "color":"black",
             "fontStyle":"italic",
           "fontSize":18},
-    "background":"#424966",
-    "width": 600,
+    "background":"white",
+    "width": 800,
     "height":500,
     "projection": {"type": "mercator"},
     "data": {
@@ -56,8 +56,8 @@
             "size": {"value": 20},
             "color": {"field": "Status", 
                       "type": "nominal",
-                      "scale":{"range":["#87bc4c", "#690828","#d8537c"]},
-            "legend":{"labelFontSize":12,"titleColor":"#abc3e4", "labelColor":"#abc3e4"}},
+                      "scale":{"range":["#e41a1c", "blue","#e08537"]},
+            "legend":{"labelFontSize":12,"orient": "top-left","titleColor":"black", "labelColor":"black"}},
             
             "tooltip":[
           {"field": "Name", "type": "nominal", "title": "Company Name"},

@@ -1,12 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 650,
-    "height": 750,
+    "width":700,
+    "height": 400,
     "title": {"text":"Top 20 Partner Countries",
-    "color":"#abc3e4",
+    "color":"black",
     "fontStyle":"italic",
     "fontSize":18},
-    "background":"#424966",
+    "background":"white",
     "data": {
       "url": "data/top20-Partner.csv"
     },
@@ -36,20 +36,14 @@
       },
       {
         "name": "Year_selection",
-        "bind": {
-          "input": "radio",
-          "options": [
-            "2000","2001","2002","2003","2004","2005",
-            "2006","2007","2008","2009","2010","2011",
-            "2012","2013","2014","2015","2016","2017",
-            "2018","2019"
-          ],
-          "labels": [
-            "2000","2001","2002","2003","2004","2005",
-            "2006","2007","2008","2009","2010","2011",
-            "2012","2013","2014","2015","2016","2017",
-            "2018","2019"
-          ],
+        "value": 2000,
+        "bind":
+        {
+          "input": "range",
+          "min": 2000,
+          "max": 2019,
+          "step": 1,
+
           "name": "Year Selection: "
         }
       }
@@ -68,14 +62,14 @@
         "field": "Import Value",
         "type": "quantitative",
         "title": "Import Value (US$ Thousand)",
-        "axis": {"grid": false,"labels":false, "ticks": false, "titleColor":"#abc3e4"},
+        "axis": {"grid": false,"labels":false, "ticks": false, "titleColor":"black"},
         "scale": {"type": "log", "domain": [90000, 90000000]}
       },
       "y": {
         "field": "Export Value",
         "type": "quantitative",
         "title": "Export Value (US$ Thousand)",
-        "axis": {"grid": false,"labels": false, "ticks": false,"titleColor":"#abc3e4"},
+        "axis": {"grid": false,"labels": false, "ticks": false,"titleColor":"black"},
         "scale": {"type": "log", "domain": [100000, 150000000]}
       }
     },
@@ -91,7 +85,7 @@
               "domain": [3000000, 10000000, 20000000, 40000000, 100000000],
               "range": [100,200,400, 800,1600]
             },
-            "legend": {"format": ".1s", "titleColor":"#abc3e4", "labelColor":"#abc3e4"}
+            "legend": { "titleColor":"black", "labelColor":"black"}
           },
           "color": {
             "field": "Continent",
@@ -104,13 +98,13 @@
                 "Oceania"
               ],
               "range": [
-                "#984ea3",
-                "#f9c9a1",
-                "#e41a1c",
-                "#e09f68"
+                "blue",
+                "green",
+                "red",
+                "#d79350"
               ]
             },
-            "legend": { "titleColor":"#abc3e4", "labelColor":"#abc3e4"}
+            "legend": { "titleColor":"black", "labelColor":"black"}
           },
           "opacity": {"value": 0.6},
           "tooltip": [
@@ -130,10 +124,10 @@
         },
         "encoding": {
           "text": {"field": "Country", "type": "nominal"},
-          "color": {"value": "#abc3e4"},
+          "color": {"value": "black"},
           "opacity": {
             "condition": {
-              "test": "datum['Country'] == 'China' || datum['Country'] == 'Switzerland' ||datum['Country'] == 'Canada' ||datum['Country'] == 'Papua New Guinea' ||datum['Country'] == 'Netherlands' ||datum['Country'] == 'United Arab Emirates' ||datum['Country'] == 'Thailand' ||datum['Country'] == 'Germany' ||datum['Country'] == 'Philippines' ||datum['Country'] == 'Indonesia' ||datum['Country'] == 'Hong Kong, China' ||datum['Country'] == 'Japan'  ||datum['Country'] == 'Korea'  ||datum['Country'] == 'United States'  ||datum['Country'] == 'United Kingdom'||datum['Country'] == 'Singapore'  || datum['Country'] == 'Malaysia'  ||datum['Country'] == 'New Zealand'  ||  datum['Country'] == 'India'",
+              "test": "datum['Country'] == 'China' ||datum['Country'] == 'Japan' ||datum['Country'] == 'United States' ||datum['Country'] == 'Korea' ||datum['Country'] == 'United Kingdom' ",
               "value": 1
             },
             "value": 0

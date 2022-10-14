@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"Export by Region (2000 to 2019)",
+    "color":"black",
+    "fontStyle":"italic",
+    "fontSize":18},
+    "data": {"url": "data/Continent.csv"},
+    "background":"white",
+    "width": 600,
+    "height": 600,
+    "transform": [
+        {"calculate": "round(datum.ExportValue/1000000)", "as": "Export Value (US$ Billion)"}
+    ],
+
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+
+
+    "encoding": {
+      "x": {
+        "field": "Year", 
+        "type": "ordinal",
+        "title":"Year",
+        "axis": {"titleColor":"black", "labelColor":"black"},
+        "scale": {"type": "log"}},
+
+      "y": {
+        "field": "Export Value (US$ Billion)", 
+        "type": "quantitative",
+        "title":"Export Value (US$ Billion)",
+        "axis": {"grid": false,"titleColor":"black", "labelColor":"black"},
+        "scale": {"type": "log"}},
+
+      "color": {"field": "Region", 
+                 "type": "nominal",
+                 "scale":{"range":["#e41a1c", "blue","#e08537","#7aa6dcff","green","#f39b7fff","#3b3b3bff"]},
+                 "legend": { "titleColor":"black", "orient": "top-left","labelColor":"black"}},
+      "tooltip": [
+        {"field": "Year", "type": "ordinal"},
+        {"field": "Region", "type":"nominal"},
+        {"field": "Export Value (US$ Billion)", "type": "quantitative"}]
+
+    }
+  }
+  
+
+

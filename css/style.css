@@ -1,10 +1,10 @@
 h1{
-    color:#abc3e4;
+    color:black;
     font-family:'Times New Roman', Times, serif;
     font-size: 30px;
 }
 h2{
-    color:#abc3e4;
+    color:black;
     font-family:'Times New Roman', Times, serif;
     font-size: 25px;
 }
@@ -14,12 +14,12 @@ h3{
   font-size: 25px;
 }
 p{
-    color:#abc3e4;
+    color:black;
     font-family:'Times New Roman', Times, serif;
     font-size: 22px;
 }
 body {
-    background-color: #424966;
+    background-color: gainsboro;
   }
 
   .vega {
@@ -29,7 +29,7 @@ body {
   
   .page {
     width: 900px;
-    background-color: #424966;
+    background-color: white;
     margin: auto;
     padding: 50px;
     padding-top: 35px;

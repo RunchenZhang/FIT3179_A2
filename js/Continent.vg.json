@@ -1,47 +1,153 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text":"Export by Region (2000 to 2019)",
-    "color":"#abc3e4",
-    "fontStyle":"italic",
-    "fontSize":18},
-    "data": {"url": "data/Continent.csv"},
-    "background":"#424966",
-    "width": 600,
-    "height": 600,
-    "transform": [
-        {"calculate": "round(datum.ExportValue/1000000)", "as": "Export Value (US$ Billion)"}
-    ],
-
-    "mark": {
-      "type": "line",
-      "point": true
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Export by Region (2000 to 2019)",
+    "color": "black",
+    "fontStyle": "italic",
+    "fontSize": 18
+  },
+  "width": 600,
+  "height": 600,
+  "data": {
+    "url": "data/Continent.csv"
+  },
+  "transform": [
+    {
+      "calculate": "round(datum.ExportValue/1000000)",
+      "as": "Export Value (US$ Billion)"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year"
     },
-
-
-    "encoding": {
-      "x": {
-        "field": "Year", 
-        "type": "ordinal",
-        "title":"Year",
-        "axis": {"titleColor":"#abc3e4", "labelColor":"#abc3e4"}},
-
-      "y": {
-        "field": "Export Value (US$ Billion)", 
-        "type": "quantitative",
-        "title":"Export Value (US$ Billion)",
-        "axis": {"grid": false,"titleColor":"#abc3e4", "labelColor":"#abc3e4"}},
-
-      "color": {"field": "Region", 
-                 "type": "nominal",
-                 "scale":{"range":["#e41a1c", "#984ea3","#e08537","#0399d7","#f9c9a1","#aeaaa9","#468f6f"]},
-                 "legend": { "titleColor":"#abc3e4", "labelColor":"#abc3e4"}},
-      "tooltip": [
-        {"field": "Year", "type": "ordinal"},
-        {"field": "Region", "type":"nominal"},
-        {"field": "Export Value (US$ Billion)", "type": "quantitative"}]
-
+    "y": {
+      "field": "Export Value (US$ Billion)",
+      "type": "quantitative",
+      "title": "Export Value (US$ Billion)",
+      "axis": {"grid": false, "ticks":false,"labels": false}
+    },
+    "color": {
+      "condition": {
+        "param": "hover",
+        "field": "Region",
+        "type": "nominal"
+      },
+      "value": "grey"
+    },
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "value": 1
+      },
+      "value": 0.2
+    }
+  },
+  "layer": [
+    {
+      "description": "transparent layer to make it easier to trigger selection",
+      "params": [
+        {
+          "name": "hover",
+          "value": [
+            {
+              "Region": "East Asia & Pacific"
+            }
+          ],
+          "select": {
+            "type": "point",
+            "fields": [
+              "Region"
+            ],
+            "on": "mouseover"
+          }
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 8,
+        "stroke": "transparent"
+      }
+    },
+    {
+      "mark": "line"
+    },
+    {
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "titleColor": "black",
+            "labelColor": "black"
+          },
+          "scale": {
+            "type": "log"
+          }
+        },
+        "y": {
+          "field": "Export Value (US$ Billion)",
+          "type": "quantitative",
+          "title": "Export Value (US$ Billion)",
+          "axis": {
+            "grid": false,
+            "titleColor": "black",
+            "labelColor": "black"
+          },
+          "scale": {
+            "type": "log"
+          }
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#e41a1c",
+              "blue",
+              "#e08537",
+              "#7aa6dcff",
+              "green",
+              "#f39b7fff",
+              "#3b3b3bff"
+            ]
+          },
+          "legend": {
+            "titleColor": "black",
+            "orient": "top-left",
+            "labelColor": "black"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          {
+            "field": "Region",
+            "type": "nominal"
+          },
+          {
+            "field": "Export Value (US$ Billion)",
+            "type": "quantitative"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "circle"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
     }
   }
-  
-
-
+}
