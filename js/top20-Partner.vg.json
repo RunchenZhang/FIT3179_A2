@@ -109,22 +109,6 @@
           "opacity": {"value": 0.6},
           "tooltip": [
             {"field": "Country", "type": "nominal"},
-            {"field": "Export Value", "type": "quantitative", "format": ","},
-            {"field": "Import Value", "type": "quantitative", "format": ","}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "right",
-          "baseline": "middle",
-          "dx": -13,
-          "fontSize": 12
-        },
-        "encoding": {
-          "tooltip": [
-            {"field": "Country", "type": "nominal"},
             {"field": "Export Value", "type": "quantitative"},
             {"field": "Import Value", "type": "quantitative"}
           ]
