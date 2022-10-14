@@ -123,19 +123,10 @@
           "fontSize": 12
         },
         "encoding": {
-          "text": {"field": "Country", "type": "nominal"},
-          "color": {"value": "black"},
-          "opacity": {
-            "condition": {
-              "test": "datum['Country'] == 'China' ||datum['Country'] == 'Japan' ||datum['Country'] == 'United States' ||datum['Country'] == 'Korea' ||datum['Country'] == 'United Kingdom' ",
-              "value": 1
-            },
-            "value": 0
-          },
           "tooltip": [
             {"field": "Country", "type": "nominal"},
-            {"field": "Export Value", "type": "quantitative", "format": ","},
-            {"field": "Import Value", "type": "quantitative", "format": ","}
+            {"field": "Export Value", "type": "quantitative"},
+            {"field": "Import Value", "type": "quantitative"}
           ]
         }
       }
